@@ -3,8 +3,11 @@ package com.example.firebaseregistration.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebaseregistration.Adapters.UsersAdapter
 import com.example.firebaseregistration.Models.Users
 import com.example.firebaseregistration.databinding.ActivityMainBinding
+import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -15,6 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     val database = FirebaseDatabase.getInstance()
     val dbReference = database.getReference().child("Users")
+
+    val users = ArrayList<Users>()
+    lateinit var usersAdapter: UsersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +39,19 @@ class MainActivity : AppCompatActivity() {
     fun retrieveData(){
         dbReference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+                users.clear()
+
                 for (dbUser in snapshot.children){
                     val user = dbUser.getValue(Users::class.java)
 
+                    if(user != null){
+                        users.add(user)
+                    }
+
+                    usersAdapter = UsersAdapter(this@MainActivity, users)
+
+                    binding.recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+                    binding.recyclerView.adapter = usersAdapter
                 }
             }
 
