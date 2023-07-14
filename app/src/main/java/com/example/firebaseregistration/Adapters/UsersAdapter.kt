@@ -1,9 +1,11 @@
 package com.example.firebaseregistration.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firebaseregistration.Activities.UpdateUserActivity
 import com.example.firebaseregistration.Models.Users
 import com.example.firebaseregistration.databinding.UserItemBinding
 
@@ -27,5 +29,15 @@ class UsersAdapter(
         holder.adapterBinding.nameTextView.text = users[position].name
         holder.adapterBinding.ageTextView.text = users[position].age.toString()
         holder.adapterBinding.emailTextView.text = users[position].email
+
+        holder.adapterBinding.linearLayout.setOnClickListener {
+            val intent = Intent(context, UpdateUserActivity::class.java)
+            intent.putExtra("id", users[position].id)
+                .putExtra("name", users[position].name)
+                .putExtra("age", users[position].age)
+                .putExtra("email", users[position].email)
+
+            context.startActivity(intent)
+        }
     }
 }
