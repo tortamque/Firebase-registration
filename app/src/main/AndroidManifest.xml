@@ -15,13 +15,13 @@
         android:theme="@style/Theme.FirebaseRegistration"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateUserActivity"
+            android:name=".Activities.UpdateUserActivity"
             android:exported="false" />
         <activity
-            android:name=".AddUserActivity"
+            android:name=".Activities.AddUserActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

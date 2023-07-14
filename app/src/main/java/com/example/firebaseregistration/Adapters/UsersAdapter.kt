@@ -1,9 +1,10 @@
-package com.example.firebaseregistration
+package com.example.firebaseregistration.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firebaseregistration.Models.Users
 import com.example.firebaseregistration.databinding.UserItemBinding
 
 class UsersAdapter(

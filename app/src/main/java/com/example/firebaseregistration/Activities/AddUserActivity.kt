@@ -1,8 +1,9 @@
-package com.example.firebaseregistration
+package com.example.firebaseregistration.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.firebaseregistration.Models.Users
 import com.example.firebaseregistration.databinding.ActivityAddUserBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

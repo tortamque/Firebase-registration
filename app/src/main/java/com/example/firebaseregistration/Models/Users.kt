@@ -1,4 +1,4 @@
-package com.example.firebaseregistration
+package com.example.firebaseregistration.Models
 
 data class Users(
     val id: String = "",

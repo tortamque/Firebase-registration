@@ -1,4 +1,4 @@
-package com.example.firebaseregistration
+package com.example.firebaseregistration.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

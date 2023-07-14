@@ -1,8 +1,9 @@
-package com.example.firebaseregistration
+package com.example.firebaseregistration.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.firebaseregistration.Models.Users
 import com.example.firebaseregistration.databinding.ActivityMainBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dbUser in snapshot.children){
                     val user = dbUser.getValue(Users::class.java)
+
                 }
             }
 
