@@ -40,4 +40,8 @@ class UsersAdapter(
             context.startActivity(intent)
         }
     }
+
+    fun getUserId(position: Int): String{
+        return users[position].id
+    }
 }
