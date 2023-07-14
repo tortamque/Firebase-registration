@@ -12,5 +12,18 @@ class UpdateUserActivity : AppCompatActivity() {
         binding = ActivityUpdateUserBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        supportActionBar?.title = "Update User"
+
+        initData()
+    }
+
+    fun initData(){
+        val name = intent.getStringExtra("name")
+        val age = intent.getIntExtra("age", 0).toString()
+        val email = intent.getStringExtra("email")
+
+        binding.nameEditTextUpdate.setText(name)
+        binding.ageEditTextUpdate.setText(age)
+        binding.emailEditTextUpdate.setText(email)
     }
 }
